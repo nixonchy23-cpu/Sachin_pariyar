@@ -1,0 +1,459 @@
+/* ============================================================
+ASHGROVE POTTERY — design system
+Palette drawn from the kiln: ash charcoal, unglazed bone,
+celadon and oxide-rust glaze tests.
+============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --charcoal: #1D1B18;
+    --ash: #28241F;
+    --ash-light: #332E27;
+    --bone: #F1EAD9;
+    --bone-dim: #C9BEA9;
+    --celadon: #8FA189;
+    --rust: #AD5A32;
+    --grey: #8B8375;
+    --line: rgba(241, 234, 217, 0.14);
+
+    --display: 'Fraunces', serif;
+    --body: 'Work Sans', sans-serif;
+    --mono: 'Space Mono', monospace;
+
+    --max: 1240px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--charcoal);
+    color: var(--bone);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--display);
+    font-weight: 400;
+    margin: 0 0 0.4em;
+    letter-spacing: -0.01em;
+    color: var(--bone);
+}
+
+h1 {
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.02;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+    font-style: italic;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: normal;
+}
+
+p {
+    margin: 0 0 1em;
+    color: var(--bone-dim);
+}
+
+.eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--celadon);
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+.wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--celadon);
+    outline-offset: 3px;
+}
+
+/* ---------------- Throwing-line divider ---------------- */
+.throwline {
+    width: 100%;
+    height: 14px;
+    margin: 0;
+    opacity: 0.55;
+}
+
+.throwline path {
+    stroke: var(--line);
+    stroke-width: 1;
+    fill: none;
+}
+
+/* ---------------- Header / nav ---------------- */
+header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(29, 27, 24, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-style: italic;
+    letter-spacing: 0.01em;
+}
+
+.logo span {
+    color: var(--rust);
+    font-style: normal;
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.92rem;
+    color: var(--bone-dim);
+    position: relative;
+    padding: 4px 0;
+    transition: color .2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--bone);
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: var(--rust);
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+}
+
+.cart-count {
+    background: var(--rust);
+    color: var(--bone);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border: 1px solid var(--bone);
+    background: transparent;
+    color: var(--bone);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.btn:hover {
+    background: var(--bone);
+    color: var(--charcoal);
+}
+
+.btn.primary {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--bone);
+}
+
+.btn.primary:hover {
+    background: #c4693d;
+    border-color: #c4693d;
+}
+
+.btn.small {
+    padding: 9px 16px;
+    font-size: 0.7rem;
+}
+
+/* ---------------- Product Grid & Cards ---------------- */
+section {
+    padding: 70px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+
+.card {
+    background: var(--charcoal);
+    padding: 26px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: background .25s ease;
+}
+
+.card:hover {
+    background: var(--ash);
+}
+
+.card .thumb {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: var(--ash);
+    border: 1px solid var(--line);
+}
+
+.card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .thumb img {
+    transform: scale(1.05);
+}
+
+.card .batch {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--grey);
+    margin-bottom: 6px;
+}
+
+.card h3 {
+    margin-bottom: 4px;
+}
+
+.card .glaze {
+    font-size: 0.85rem;
+    color: var(--celadon);
+    margin-bottom: 14px;
+}
+
+.card .row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card .price {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+}
+
+.card .stock {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--grey);
+    margin-top: 10px;
+}
+
+.card .stock.low {
+    color: var(--rust);
+}
+
+/* ---------------- Filters ---------------- */
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filters button {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--bone-dim);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    letter-spacing: 0.03em;
+    transition: all .2s ease;
+}
+
+.filters button.active,
+.filters button:hover {
+    border-color: var(--celadon);
+    color: var(--bone);
+}
+
+/* ---------------- Page Intro ---------------- */
+.page-intro {
+    padding: 70px 0 20px;
+    max-width: 640px;
+}
+
+/* ---------------- Newsletter ---------------- */
+.newsletter {
+    background: var(--ash);
+    padding: 60px 0;
+}
+
+.newsletter .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.newsletter form {
+    display: flex;
+    gap: 0;
+    flex-shrink: 0;
+}
+
+.newsletter input {
+    background: var(--charcoal);
+    border: 1px solid var(--line);
+    border-right: none;
+    color: var(--bone);
+    padding: 13px 16px;
+    font-family: var(--body);
+    width: 260px;
+}
+
+.newsletter input:focus {
+    outline: none;
+    border-color: var(--celadon);
+}
+
+/* ---------------- Footer ---------------- */
+footer.site {
+    border-top: 1px solid var(--line);
+    padding: 56px 0 34px;
+    margin-top: 60px;
+}
+
+.foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+@media (max-width:700px) {
+    .foot-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.foot-grid h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--grey);
+    font-style: normal;
+    margin-bottom: 16px;
+}
+
+.foot-grid ul li {
+    margin-bottom: 10px;
+}
+
+.foot-grid ul a {
+    color: var(--bone-dim);
+    font-size: 0.9rem;
+}
+
+.foot-grid ul a:hover {
+    color: var(--bone);
+}
+
+.foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--grey);
+}
